@@ -27,8 +27,18 @@
 
   .index-background {
       background-color: #ae310e96;
-      border-radius: 20px;
+      border-radius: 10px;
       padding: 50px;
       
+  }
+
+  .button {
+    background-color: #ae310e96 !important;
+    border-radius: 2px;
+  }
+
+  .align-spaced {
+    padding-top: 30px;
+    
   }
   
