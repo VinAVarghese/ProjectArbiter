@@ -18,39 +18,55 @@
 <body>
   <!--Main section with buttons and hero-->
   <div class="grid-container ">
-    <div class="grid-x align-center index-background grid-padding-x">
+    <div class="grid-x align-center index-background grid-padding-x searchpane">
 
-        
 
-        <div class="medium-6 cell">
-          <ul class="dropdown menu" data-dropdown-menu>
-            <li id="choicemain"><a href="#" id="choiceslink">Choices</a>
-              <ul class="menu">
-                <li id="movie"><a href="#" >Movie</a></li>
-                <li id="book"><a href="#" >Book</a></li>
-                <li id="music"><a href="#" >Music</a></li>
-                <li id="tvshow"><a href="#" >TV Show</a></li>
-                <li id="game"><a href="#" >Game</a></li>
-                <li id="nightclub"><a href="#" >Night Club</a></li>
-                <li id="bar"><a href="#" >Bar</a></li>
-                <li id="restaurant"><a href="#">Restaurant</a>
-                  <ul class="menu">
+
+      <div class="medium-6 cell">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li id="choicemain"><a href="#" id="choiceslink">Choices</a>
+            <ul class="menu">
+              <li id="movie"><a href="#">Movie</a></li>
+              <li id="book"><a href="#">Book</a></li>
+              <li id="music"><a href="#">Music</a></li>
+              <li id="tvshow"><a href="#">TV Show</a></li>
+              <li id="game"><a href="#">Game</a></li>
+              <li id="nightlife"><a href="#">Night Life</a></li>
+              <li id="bar"><a href="#">Bar</a></li>
+              <li id="restaurant"><a href="#">Restaurant</a>
+                <!-- <ul class="menu">
                     <li id="breakfast"><a href="#" >Breakfast</a></li>
                     <li id="lunch"><a href="#" >Lunch</a></li>
                     <li id="dinner"><a href="#" >Dinner</a></li>
-                  </ul>
-                </li>
-                <!-- ... -->
-              </ul>
-            </li>
-          </ul>
-        </div>
-          <div class="large-12 cell ">
-            <label>
-              <input type="text" id="searchplaceholder" placeholder="Enter a query">
-            </label>
-          </div>
+                  </ul> -->
+              </li>
+              <!-- ... -->
+            </ul>
+          </li>
+        </ul>
       </div>
+      <div class="medium-6 cell " id="mealchoice">
+        <ul class="dropdown menu" data-dropdown-menu>
+        <li ><a href="#" id="choiceslink">Meal</a>
+          <ul class="menu">
+            <li id="breakfast"><a href="#">Breakfast</a></li>
+            <li id="lunch"><a href="#">Lunch</a></li>
+            <li id="dinner"><a href="#">Dinner</a></li>
+          </ul>
+        </li>
+        </ul>
+      </div>
+      <div class="large-12 cell mainqueryform">
+        <label>
+          <input type="text" id="searchplaceholder" placeholder="Enter a query">
+        </label>
+      </div>
+      <div class="large-12 cell city">
+        <label>
+          <input type="text" id="restaurantcity" placeholder="Enter your city">
+        </label>
+      </div>
+    </div>
     <!-- FORM: dropdown categories- input area: text, and search button - cat dropdown: breakfast, lunch, dinner, book, movie, etc
           input physically type search term, submit button form: "Search" text: "query" -->
     <!--  -->
@@ -72,12 +88,34 @@
 
   <script>
     $(document).foundation();
-    $("#choicemain").on("click", "li", function() {
+    $("#choicemain").on("click", "li", function () {
+      $(".city").css("display", "none");
+      $("#mainqueryform").css("display", "block");
+      $("#searchplaceholder").css("display", "block");
+      $("#mealchoice").css("display", "none");
       event.preventDefault();
       console.log(this.id)
       const thisID = this.id;
+
       $("#choiceslink").text($(`#${thisID}`).text());
-      $("#searchplaceholder").attr("placeholder", `Enter a ${thisID} you like!`);
+
+      if (thisID === "restaurant") {
+        var entrystring = `Breakfast, Lunch, or Dinner?`;
+        
+        $("#mainqueryform").css("display", "none");
+        $("#mealchoice").css("display", "block");
+        $(".city").css("display", "block");
+        $("#searchplaceholder").css("display", "none");
+      } else if (thisID != "nightlife" && thisID != "bar" && thisID != "music") {
+        var entrystring = `Enter a ${thisID} you like!`;
+
+      } else if (thisID === "music") {
+        var entrystring = `Enter ${thisID} you like!`;
+      } else {
+        var entrystring = `Enter your city!`;
+      }
+
+      $("#searchplaceholder").attr("placeholder", entrystring);
     })
   </script>
 </body>

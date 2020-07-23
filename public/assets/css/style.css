@@ -50,6 +50,10 @@ body {
     background-color: #ae310ebd;
   }
 
+  .city, #mealchoice {
+    display: none;
+  }
+
   .buttonrow {
     position: relative;
     top: 15px;
