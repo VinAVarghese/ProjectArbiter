@@ -24,7 +24,8 @@
     "express-handlebars": "^5.1.0",
     "mysql": "^2.18.1",
     "mysql2": "^2.1.0",
-    "sequelize": "^6.3.3"
+    "sequelize": "^6.3.3",
+    "zomato-api": "^0.1.2"
   },
   "devDependencies": {
     "handlebars-helper-css": "^0.1.0"
