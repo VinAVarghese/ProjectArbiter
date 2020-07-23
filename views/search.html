@@ -24,14 +24,14 @@
 
         <div class="medium-6 cell">
           <ul class="dropdown menu" data-dropdown-menu>
-            <li id="choicemain"><a href="#">Choices</a>
+            <li id="choicemain"><a href="#" id="choiceslink">Choices</a>
               <ul class="menu">
-                <li id="movie">Movie</li>
-                <li id="book">Book</li>
-                <li id="music">Music</li>
-                <li id="tvshow">TV Show</li>
-                <li id="game">Game</li>
-                <li id="restaurant">Restaurant</li>
+                <li id="movie"><a href="#" >Movie</a></li>
+                <li id="book"><a href="#" >Book</a></li>
+                <li id="music"><a href="#" >Music</a></li>
+                <li id="tvshow"><a href="#" >TV Show</a></li>
+                <li id="game"><a href="#" >Game</a></li>
+                <li id="restaurant"><a href="#" >Restaurant</a></li>
                 <!-- ... -->
               </ul>
             </li>
@@ -65,7 +65,9 @@
   <script>
     $(document).foundation();
     $("#choicemain").on("click", "li", function() {
-      console.log(this.id);
+      console.log(this.id)
+      const thisID = this.id;
+      $("#choiceslink").text($(`#${thisID}`).text());
     })
   </script>
 </body>
