@@ -1,8 +1,19 @@
 module.exports = function(sequelize, DataTypes) {
-    var user = sequelize.define("user", {
-      user_name: DataTypes.STRING,
+    var User = sequelize.define("User", {
+      name: DataTypes.STRING,
+      email:{
+        type: DataTypes.STRING, 
+        unique:true
+      },
       password: DataTypes.STRING
     });
-    return user;
+
+    User.associate = (models) => {
+      User.hasMany(models.Favorite, {
+        as: "Favorites"
+      });
+    };
+
+    return User;
   };
   

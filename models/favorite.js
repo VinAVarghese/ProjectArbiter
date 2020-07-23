@@ -1,9 +1,15 @@
 module.exports = function(sequelize, DataTypes) {
-    var favorite = sequelize.define("favorite", {
-    //   user_id: DataTypes.INTEGER, FOREIGN KEY
+    var Favorite = sequelize.define("Favorite", {
       title: DataTypes.STRING,
-      note: DataTypes.STRING,
+      note: DataTypes.TEXT,
     });
-    return favorite;
+
+    Favorite.associate = (models) => {
+      Favorite.belongsTo(models.User,{
+        as:"Owner"
+      });
+    };
+
+    return Favorite;
   };
   
