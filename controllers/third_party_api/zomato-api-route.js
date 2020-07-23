@@ -1,6 +1,8 @@
 var express = require("express");
 var router = express.Router();
 const axios = require("axios")
+require('dotenv').config();
+
 
 router.post("/api/zomato" , (req,res) => {
     // Need to recieve type and q from frontend form
@@ -8,7 +10,7 @@ router.post("/api/zomato" , (req,res) => {
     const type = req.body.type;
     const q = req.body.q;
     
-    const apiKey = "e67072ffec13f1c95781c11c4b394576"
+    const apiKey =  process.env.ZOMATO_API_KEY;
    // const queryURL = `https://zomato.com/api/similar?q=${type}:${q}&info=1&limit=100&k=${apiKey}`
    const queryURL = "https://developers.zomato.com/api/v2.1/categories"
     
