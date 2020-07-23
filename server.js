@@ -14,9 +14,20 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
-// How to select all the different multiple controller files OR use a controllers AND routes folder?
-var routes = require("");
+// Routes
+var frontendRoutes = require("./controllers/frontend");
+app.use(frontendRoutes);
+var favRoutes = require("./controllers/favorites_controller");
+app.use(favRoutes);
+var userRoutes = require("./controllers/users_controller");
+app.use(userRoutes);
+var tastediveRoutes = require("./controllers/third_party_api/tastedive-api-routes");
+app.use(tastediveRoutes);
+var zomatoRoutes = require("./controllers/third_party_api/zomato-api-routes");
+app.use(zomatoRoutes);
 
-app.use(routes);
-
-app.listen(PORT, () => console.log("Server listening on: https://localhost:" + PORT))
+db.sequelize.sync({force:true}).then(function() {
+    app.listen(PORT, function() {
+      console.log("App now listening on port:", PORT);
+    });
+  });

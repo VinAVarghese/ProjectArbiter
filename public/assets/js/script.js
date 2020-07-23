@@ -6,7 +6,7 @@ $("#search-form").on("submit", (event) => {
     searchTasteDive(type, q)
 })
 
-// Need to send "type" and "q" data server-side
+// Sending "type" and "q" data server-side
 const searchTasteDive = (type, q) => {
     const searchData = {
         type,
@@ -15,13 +15,14 @@ const searchTasteDive = (type, q) => {
     $.ajax("/api/tastedive", {
         type: "POST",
         data: searchData,
+    }).then((option) => {
+        renderTasteDiveOption(option)
     })
 }
 
-// Need to recieve "option" from server-side to render card
-const renderTasteDiveOption = (data) => {
+const renderTasteDiveOption = (option) => {
     // queryBar validator
-    if (data.similar.info[0].type == "unknown") {
+    if (option === "unknown" || option === undefined || option === null) {
         $("#queryBar").val("Not a valid search, please try again")
         $("#queryBar").attr("class", "error");
     } else
