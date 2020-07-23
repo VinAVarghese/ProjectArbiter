@@ -39,10 +39,15 @@ body {
             
   }
 
+  a {
+    color: #fefefe;
+    text-shadow: 1px 1px 2px #0a0a0a;
+  }
+
   .grid-container .grid-x .button {
     padding-bottom: 10px ;
-    border-radius: 2px;
-    background-color: #ae310e96;
+    border-radius: 10px;
+    background-color: #ae310ebd;
   }
 
   .buttonrow {

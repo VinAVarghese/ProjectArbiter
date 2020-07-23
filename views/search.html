@@ -31,7 +31,13 @@
                 <li id="music"><a href="#" >Music</a></li>
                 <li id="tvshow"><a href="#" >TV Show</a></li>
                 <li id="game"><a href="#" >Game</a></li>
-                <li id="restaurant"><a href="#" >Restaurant</a></li>
+                <li id="restaurant"><a href="#" >Restaurant</a>
+                  <ul class="menu">
+                    <li id="breakfast"><a href="#" >Breakfast</a></li>
+                    <li id="lunch"><a href="#" >Lunch</a></li>
+                    <li id="dinner"><a href="#" >Dinner</a></li>
+                  </ul>
+                </li>
                 <!-- ... -->
               </ul>
             </li>
@@ -39,7 +45,7 @@
         </div>
           <div class="large-12 cell ">
             <label>Input Label
-              <input type="text" placeholder=".medium-12.cell">
+              <input type="text" placeholder="Enter a query">
             </label>
           </div>
       </div>
@@ -65,6 +71,7 @@
   <script>
     $(document).foundation();
     $("#choicemain").on("click", "li", function() {
+      event.preventDefault();
       console.log(this.id)
       const thisID = this.id;
       $("#choiceslink").text($(`#${thisID}`).text());
