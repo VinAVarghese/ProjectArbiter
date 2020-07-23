@@ -18,30 +18,30 @@
 <body>
   <!--Main section with buttons and hero-->
   <div class="grid-container ">
-    <div class="grid-x align-center index-background">
+    <div class="grid-x align-center index-background grid-padding-x">
 
         
 
         <div class="medium-6 cell">
           <ul class="dropdown menu" data-dropdown-menu>
-            <li><a href="#">Choices</a>
+            <li id="choicemain"><a href="#">Choices</a>
               <ul class="menu">
-                <li><a href="#">Movie</a></li>
-                <li><a href="#">Book</a></li>
-                <li><a href="#">Music</a></li>
-                <li><a href="#">TV Show</a></li>
-                <li><a href="#">Game</a></li>
-                <li><a href="#">Restaurant</a></li>
+                <li id="movie">Movie</li>
+                <li id="book">Book</li>
+                <li id="music">Music</li>
+                <li id="tvshow">TV Show</li>
+                <li id="game">Game</li>
+                <li id="restaurant">Restaurant</li>
                 <!-- ... -->
               </ul>
             </li>
           </ul>
         </div>
-        <div class="grid-x ">
-          <label>Input Label
-            <input type="text" placeholder=".medium-12.cell">
-          </label>
-        </div>
+          <div class="large-12 cell ">
+            <label>Input Label
+              <input type="text" placeholder=".medium-12.cell">
+            </label>
+          </div>
       </div>
     <!-- FORM: dropdown categories- input area: text, and search button - cat dropdown: breakfast, lunch, dinner, book, movie, etc
           input physically type search term, submit button form: "Search" text: "query" -->
@@ -64,6 +64,9 @@
 
   <script>
     $(document).foundation();
+    $("#choicemain").on("click", "li", function() {
+      console.log(this.id);
+    })
   </script>
 </body>
 
