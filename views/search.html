@@ -31,7 +31,9 @@
                 <li id="music"><a href="#" >Music</a></li>
                 <li id="tvshow"><a href="#" >TV Show</a></li>
                 <li id="game"><a href="#" >Game</a></li>
-                <li id="restaurant"><a href="#" >Restaurant</a>
+                <li id="nightclub"><a href="#" >Night Club</a></li>
+                <li id="bar"><a href="#" >Bar</a></li>
+                <li id="restaurant"><a href="#">Restaurant</a>
                   <ul class="menu">
                     <li id="breakfast"><a href="#" >Breakfast</a></li>
                     <li id="lunch"><a href="#" >Lunch</a></li>
@@ -44,8 +46,8 @@
           </ul>
         </div>
           <div class="large-12 cell ">
-            <label>Input Label
-              <input type="text" placeholder="Enter a query">
+            <label>
+              <input type="text" id="searchplaceholder" placeholder="Enter a query">
             </label>
           </div>
       </div>
@@ -75,6 +77,7 @@
       console.log(this.id)
       const thisID = this.id;
       $("#choiceslink").text($(`#${thisID}`).text());
+      $("#searchplaceholder").attr("placeholder", `Enter a ${thisID} you like!`);
     })
   </script>
 </body>
