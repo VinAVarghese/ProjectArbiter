@@ -27,6 +27,16 @@ body {
             
   }
 
+  .center .grid-x .button {
+    padding-bottom: 10px ;
+    border-radius: 2px;
+    background-color: #ae310e96;
+  }
+
+  .buttonrow {
+    margin-top: 10px;
+  }
+
   .center {
     position: absolute;
         top: 33%;
@@ -44,6 +54,7 @@ body {
       background-color: #ae310e96;
       border-radius: 20px;
       padding: 50px;
+
       
   }
   
