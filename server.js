@@ -23,8 +23,10 @@ var userRoutes = require("./controllers/users_controller");
 app.use(userRoutes);
 var tastediveRoutes = require("./controllers/third_party_api/tastedive-api-routes");
 app.use(tastediveRoutes);
-var zomatoRoutes = require("./controllers/third_party_api/zomato-api-routes");
+var zomatoRoutes = require("./controllers/third_party_api/zomato-api-route");
 app.use(zomatoRoutes);
+var ticketmasterRoutes = require("./controllers/third_party_api/ticketmaster-api-routes");
+app.use(ticketmasterRoutes);
 
 db.sequelize.sync({force:true}).then(function() {
     app.listen(PORT, function() {
