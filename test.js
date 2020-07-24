@@ -1,11 +1,11 @@
 // var zomato = require('zomato-api');
 // var client = zomato({
 // userKey: 'e67072ffec13f1c95781c11c4b394576'
-// })
+//  })
 
-//1. city
-//2. rest id
-//3. rest info
+// //1. city
+// //2. rest id
+// //3. rest info
 
 // client.getCategories()
 //   .then(res => console.log(res.categories))
