@@ -1,13 +1,14 @@
 var express = require("express");
 var router = express.Router();
+var zomato = require('zomato-api');
 const axios = require("axios")
 require('dotenv').config();
 
 
 router.post("/api/zomato", (req, res) => {
     // Need to recieve category and city from frontend form
-
-    const cateory = req.body.category;
+    
+    const category = req.body.category;
     const city = req.body.city;
 
     const apiKey = process.env.ZOMATO_API_KEY;
