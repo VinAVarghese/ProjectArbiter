@@ -4,10 +4,21 @@ var PORT = process.env.PORT || 8080;
 
 var app = express();
 
+const session = require ("express-session");
+
 app.use(express.static("public"));
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
+
+app.use(session({
+  secret:process.env.SESSION_SECRET,
+  resave:false,
+  saveUninitialized: true,
+  cookie:{
+      maxAge:7200000
+  }
+}))
 
 var exphbs = require("express-handlebars");
 
@@ -15,10 +26,12 @@ app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 // Routes
-var frontendRoutes = require("./controllers/frontend");
+var frontendRoutes = require("./controllers/frontend_controller");
 app.use(frontendRoutes);
+var authRoutes = require("./controllers/auth_controller");
+app.use("/auth", authRoutes);
 var favRoutes = require("./controllers/favorites_controller");
-app.use(favRoutes);
+app.use("/api/favorites",favRoutes);
 var userRoutes = require("./controllers/users_controller");
 app.use(userRoutes);
 var tastediveRoutes = require("./controllers/third_party_api/tastedive-api-routes");

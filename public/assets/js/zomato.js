@@ -42,32 +42,27 @@ const renderZomatoOption = (option) => {
     optionSection.attr("class", "card-section");
     $(optionCard).append(optionSection);
 
-    if (option.name !== null) {
-        const h4About = $("<h4>");
-        h4About.text("About")
-        $(optionSection).append(h4About);
-        const pAbout = $("<p>");
-        pAbout.text(option.name)
-        $(optionSection).append(pAbout);
-    }
-//need change
-    // if (option.url !== null) {
-    //     const h4Links = $("<h4>");
-    //     h4Links.text("Links")
-    //     $(optionSection).append(h4Links);
-    //     const aWikiTag = $("<a>");
-    //     aWikiTag.attr("href", option.url)
-    //     aWikiTag.text("Wikipedia")
-    //     $(optionSection).append(aWikiTag);
-    // }
+    const h4Address = $("<h4>");
+    h4Address.text("Address")
+    $(optionSection).append(h4Address);
+    const pTag = $("<p>");
+    pTag.text(`${option.location.address}`)
+    $(optionSection).append(pTag);
 
-    // if (option.location.address.city !== null) {
-    //     const h4YTube = $("<h4>");
-    //     h4YTube.text("YouTube")
-    //     $(optionSection).append(h4YTube);
-    //     const aWikiTag = $("<a>");
-    //     aWikiTag.attr("href", option.yUrl)
-    //     aWikiTag.text("Preview")
-    //     $(optionSection).append(aWikiTag);
-    // }
+    if (option.url !== null) {
+        const h4Link = $("<h4>");
+        h4Link.text("Link")
+        $(optionSection).append(h4Link);
+        const aTag = $("<a>");
+        aTag.attr("href", option.url)
+        aTag.text("Zomato Page")
+        $(optionSection).append(aTag);
+    }
+
+    if (option.menu_url !== null) {
+        const aTag = $("<a>");
+        aTag.attr("href", option.menu_url)
+        aTag.text("Menu")
+        $(optionSection).append(aTag);
+    }
 }
