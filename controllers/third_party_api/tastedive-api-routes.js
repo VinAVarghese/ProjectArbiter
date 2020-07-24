@@ -13,13 +13,29 @@ router.post("/api/tastedive" , (req,res) => {
     
     axios.get(queryURL).then((res) => {
         console.log("res.data", res.data);
+        const data = res.data.Similar.Results
         // Selecting 1 random option/100 responses to display
-        const randomNum = Math.floor(Math.random() * 101);
-        const option = res.data.similar.results[randomNum]
+        const randomNum = Math.floor(Math.random() * data.length);
+        const option = res.data.Similar.Results[randomNum]
         console.log("option", option);
-        // Need to send "option" data back to the frontend js to render
+        // Sending "option" data back to the frontend js to render
         res.json(option)
     })
 })
 
 module.exports = router
+
+// TESTING
+
+// const queryURL = `https://tastedive.com/api/similar?q=movie:matrix&info=1&limit=100&k=379591-Spontane-B984IDZT`
+
+// axios.get(queryURL).then((res) => {
+//     console.log("res.data", res.data); //why is this coming back as "object"
+//     const data = res.data.Similar.Results
+//     // Selecting 1 random option/100 responses to display
+//     const randomNum = Math.floor(Math.random() * data.length);
+//     const option = res.data.Similar.Results[randomNum]
+//     console.log("option", option);
+//     // Sending "option" data back to the frontend js to render
+//     res.json(option)
+// })
