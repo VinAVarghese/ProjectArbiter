@@ -16,7 +16,7 @@ app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 app.use(session({
-  secret:process.env.SESSION_SECRET,
+  secret: process.env.SESSION_SECRET || "hthugu48h8",
   resave:false,
   saveUninitialized: true,
   cookie:{
