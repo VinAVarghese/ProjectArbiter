@@ -5,7 +5,7 @@ var db = require("../models");
 
 // Homepage
 router.get("/", (req,res) => {
-    res.render("index")
+    res.render("home")
 })
 
 // Search Page
