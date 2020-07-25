@@ -1,0 +1,40 @@
+{{!-- Log In/User Button --}}
+<div class="grid-x align-right">
+    <div class="cell small-2 medium-1 class user-link-div">
+        <a href="/login" class="user-link">Log In</a>
+    </div>
+</div>
+
+{{!--Main central div with buttons and hero--}}
+<div class="grid-container centralize">
+    <div class="grid-x align-center">
+        <div class="index-background">
+            <div class="grid-x align-center">
+                {{!-- Search Form --}}
+                <form id="#search-form">
+                    <h3 class="headerText">Let's Get Spontaneous!</h3>
+                    <select id="selectCategory">
+                        <option id="category" value="">Select A Category</option>
+                        <option id="category" value="Restaurant">Restaurant</option>
+                        <option id="category" value="Bar">Bar</option>
+                        <option id="category" value="Nightlife">Nightlife</option>
+                        <option id="category" value="Book">Book</option>
+                        <option id="category" value="Book">Artist</option>
+                        <option id="category" value="Movie">Movie</option>
+                        <option id="category" value="TV Show">TV Show</option>
+                        <option id="category" value="Game">Game</option>
+                    </select>
+                    {{!-- Input Text Box --}}
+                    <input id="input" type="text" placeholder="">
+                    {{!-- Spontaneous Search/Submit button --}}
+                    <input type="submit" class="button spontaneousSearchBtn cell" value="Spontaneous Search">
+                </form>
+            </div>
+        </div>
+    </div>
+    {{!-- Search and Favorite Button Row --}}
+    <div class="grid-x align-center grid-margin-x grid-margin-y buttonrow">
+        <a class="cell small-4 medium-3 grid-margin-y button alert searchBtn" href="/search">Search</a>
+        <a class="cell small-4 medium-3 grid-margin-y button alert favoritesBtn" href="/fav/">Favorites</a>
+    </div>
+</div>

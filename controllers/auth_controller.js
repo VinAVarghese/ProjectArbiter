@@ -1,9 +1,8 @@
 var express = require("express");
 var router = express.Router();
 const bcrypt = require("bcrypt");
-const session = require ("express-session");
 
-// Login Page (Sign Up route)
+// Sign Up Button (on sign up page)
 router.post("/signup", (req,res) => {
     db.User.create({
         name:req.body.name,
@@ -11,13 +10,14 @@ router.post("/signup", (req,res) => {
         password:req.body.password,
     }).then(userData=>{
         res.json(userData.id)
+        res.redirect("/user/:id")
     }).catch(err=>{
         console.log(err);
         res.status(500).end()
     })
 })
 
-// Login Page (Login route)
+// Login Button (on login page)
 router.post("/login", (req,res) => {
     db.User.findOne({
         where: {
@@ -25,7 +25,7 @@ router.post("/login", (req,res) => {
         }
     }).then(user=>{
         if(!user){
-            return res.status(404).send("User not found")
+            return res.status(404).send("Account not found")
         } else {
             if(bcrypt.compareSync(req.body.password, user.password)){
                 req.session.user = {
@@ -43,8 +43,14 @@ router.post("/login", (req,res) => {
     })
 })
 
+// Logout Button (on user page)
+router.get("/logout",(req,res)=>{
+    req.session.destroy();
+    res.send("You have been logged out!");
+})
+
 router.get("/readsessions",(req,res)=>{
-    res.json(req.session)
+    res.json(req.session.user)
 })
 
 router.get("/secretroute",(req,res)=>{
@@ -55,9 +61,5 @@ router.get("/secretroute",(req,res)=>{
     }
 })
 
-router.get("/logout",(req,res)=>{
-    req.session.destroy();
-    res.send("logged out!");
-})
 
 module.exports = router;

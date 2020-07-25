@@ -1,30 +1,33 @@
-// Require
 var express = require("express");
 var router = express.Router();
-const session = require("express-session");
 var db = require("../models")
-var Favorites = ('')
 
-
-app.get("/", (req, res) => {
+// Favorites Page > Read all on load
+router.get("/", (req, res) => {
     if (!req.session.user) {
         return res.status(401).send("Please login first.")
     }
-    db.Favorites.findAll({}).then(favoriteData => {
-        res.json(favoriteData)
+    db.Favorites.findAll({
+        include: [db.User]
+    }).then(favs => {
+        const favsJSON = favs.map((favsObj) => {
+            return favsObj.toJSON();
+        })
+        res.render("favorites", { favorites: favsJSON })
     }).catch(err => {
         console.log(err);
         res.status(500).end()
     })
 })
 
-app.post("/", (req, res) => {
+// Add Favorite (favorite button next to returned option in search page)
+router.post("/", (req, res) => {
     if (!req.session.user) {
         return res.status(401).send("Please login first.")
     }
     db.Favorites.create({
         title: req.body.title,
-        note: req.body.note,
+        note: "",
     }).then(favoriteData => {
         res.json(favoriteData)
     }).catch(err => {
@@ -33,36 +36,47 @@ app.post("/", (req, res) => {
     })
 })
 
-app.delete("/:id", (req, res) => {
+// Delete Favorite Button (on favorites page)
+router.delete("/:id", (req, res) => {
     if (!req.session.user) {
         return res.status(401).send("Please login first.")
     } else {
-        db.Favorites.findOne({
+        db.Favorites.destroy({
             where: {
                 id: req.params.id
             }
-        }).then(fav => {
-            if (req.session.user.id !== fav.Userid) {
-                return res.status(401).send("Not your favorite.")
-            } else {
-                db.Favorites.destroy({
-                    where: {
-                        id: req.params.id
-                    }
-                }).then(favoriteData => {
-                    res.json(favoriteData)
-                }).catch(err => {
-                    console.log(err);
-                    res.status(500).end()
-                })
-            }
+        }).then(favoriteData => {
+            res.json(favoriteData)
+        }).catch(err => {
+            console.log(err);
+            res.status(500).end()
         })
     }
-
 })
 
-app.put("/:id", (req, res) => {
+// Single View/Fav Edit Page
+router.get("/:id", (req, res) => {
+    db.Favorites.findOne({
+        where: {
+            id: req.params.id
+        }
+    }).then(favs => {
+        const favsJSON = favs.map((favsObj) => {
+            return favsObj.toJSON();
+        })
+        res.render("favorite_edit", { favorites: favsJSON })
+    }).catch(err => {
+        console.log(err);
+        res.status(500).end()
+    })
+})
+
+// Update Button (on single view page)
+router.put("/:id", (req, res) => {
     db.Favorites.update({
+        title: req.body.title,
+        note: req.body.note,
+    }, {
         where: {
             id: req.params.id
         }
@@ -73,5 +87,7 @@ app.put("/:id", (req, res) => {
         res.status(500).end()
     })
 })
+
+
 
 module.exports = router
