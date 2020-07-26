@@ -5,8 +5,10 @@ var db = require("../models");
 
 // Homepage
 router.get("/", (req,res) => {
+
     res.render("home")
 })
+
 
 // Search Page
 router.get("/search", (req,res) => {
@@ -15,7 +17,7 @@ router.get("/search", (req,res) => {
 
 // Log In Page
 router.get("/login", (req,res) => {
-    res.render("login")
+    res.render("log_in")
 })
 
 // Sign Up Page
