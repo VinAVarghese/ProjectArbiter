@@ -6,14 +6,14 @@ require('dotenv').config();
 
 router.post("/api/recipyPuppy" , (req, result) => {
     //Need to recieve data from frontend
-    const title = req.body.title;
+    
     const ingredients = req.body.ingredients;
-    const page = req.body.page;
+    
 
     const apiKey = process.env.RECIPYPUPPY_API_KEY;
     
     
-    const queryURL =`http://www.recipepuppy.com/api/?i=${ingredients}&q=${title}&p=${page}&apikey=${apiKey}`
+    const queryURL =`http://www.recipepuppy.com/api/?i=${ingredients}&apikey=${apiKey}`
 
     axios.get(queryURL).then((res) => {
         console.log("res.results",res.results);

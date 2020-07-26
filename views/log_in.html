@@ -9,17 +9,58 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400&display=swap" rel="stylesheet">
-
-        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="../public/assets/css/style.css">
 </head>
 
 <body>
     <div class="hero-section">
         <div class="hero-section-text">
             <div class="index-background">
-          <h1>Account Info</h1>
+          <h1>Sign Up/Login</h1>
         </div>
-          <!-- <h5>subtitle about anything you like</h5> -->
+        <form id="registration">
+          <div class="form-icons">
+            <h4>Register for an account</h4>
+        
+            <div class="input-group">
+              <span class="input-group-label">
+                <i class="fa fa-user"></i>
+              </span>
+              <input class="input-group-field" id="newName" type="text" placeholder="Full name">
+            </div>
+        
+            <div class="input-group">
+              <span class="input-group-label">
+                <i class="fa fa-envelope"></i>
+              </span>
+              <input class="input-group-field" id="newEmail" type="text" placeholder="Email">
+            </div>
+        
+            <div class="input-group">
+              <span class="input-group-label">
+                <i class="fa fa-key"></i>
+              </span>
+              <input class="input-group-field" type="text" id="newPass" placeholder="Password">
+            </div>
+          </div>
+        
+          <button class="button expanded">Sign Up</button>
+          <a id="login" href="#">Existing user? Click here to log in</a>
+        </form>
+
+        <form id="currentUser" class="log-in-form">
+          <h4 class="text-center">Existing User Login</h4>
+          <label>Email
+            <input type="email" id="#userEmail" placeholder="somebody@example.com">
+          </label>
+          <label>Password
+            <input type="password" id="#userPass" placeholder="Password">
+          </label>
+          <input id="show-password" type="checkbox"><label for="show-password">Show password</label>
+          <p><input type="submit" class="button expanded" value="Log in"></input></p>
+        </form>
+        
+        
         </div>
       </div>
 
@@ -28,6 +69,54 @@
     <!-- Compressed JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
         integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
+    
+    <script>
+      $("#currentUser").hide()
+      //Event Listener to handle hiding the signup form if the user is an existing user. 
+      $("#login").click(function(){
+        $("#registration").hide();
+        $("#currentUser").show();
+      });
+      
+      
+      $("#currentUser").submit(function(event){
+          event.preventDefault();
+          const userObj = {
+              email:$("#userEmail").val(),
+              password:$("#userPass").val()
+          }
+          $.ajax({
+              url:"", //Add in once auth controllers are set up. 
+              method:"POST",
+              data: userObj
+          }).done(function(data){
+              console.log(data);
+              location.href = "/favorites"
+          }).fail(function(err){
+              console.log(err);
+              location.reload();
+          })
+      })
+      
+      $("#registration").submit(function(event){
+          event.preventDefault();
+          const userObj = {
+              name:$("#newName").val(),
+              email:$("#newEmail").val(),
+              password:$("#newPassword").val()
+          }
+          $.ajax({
+              url:"", //Add in once auth controllers are set up.
+              method:"POST",
+              data: userObj
+          }).done(function(data){
+              alert('Signed up successfully')
+              location.href = "/login"
+          }).fail(function(err){
+              console.log(err);
+              location.reload();
+          })
+      })      
+    </script>
 </body>
-
 </html>
