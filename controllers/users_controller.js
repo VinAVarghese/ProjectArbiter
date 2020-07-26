@@ -4,18 +4,19 @@ var db = require("../models")
 
 // User Page > Read user data on load
 router.get("/user/:id", (req,res) => {
-    if(!req.session.user)
-    db.User.findOne({
-        where:{
-            id:req.params.id
-        }
-    }).then(userObj => {
-        const userObjJSON = userObj.toJSON();
-        res.render("user", userObjJSON)
-    }).catch(err =>{
-        console.log(err);
-        res.status(500).end()
-    })
+    if(req.session.user){
+        db.User.findOne({
+            where:{
+                id:req.params.id
+            }
+        }).then(userObj => {
+            const userObjJSON = userObj.toJSON();
+            res.render("user", userObjJSON)
+        }).catch(err =>{
+            console.log(err);
+            res.status(500).end()
+        })
+    }
 })
 
 // Update User Button (on user page)

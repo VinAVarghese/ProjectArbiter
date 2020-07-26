@@ -4,7 +4,7 @@ const axios = require("axios");
 var moment = require('moment');
 require('dotenv').config();
 
-router.post("/api/ticketmaster", (req, res) => {
+router.post("/api/ticketmaster", (req, result) => {
     // Recieving city from frontend
     const city = req.body.city;
 
@@ -23,7 +23,7 @@ router.post("/api/ticketmaster", (req, res) => {
         const option = data[randomNum]
         console.log("option", option);
         // Send "option" data back to the frontend js to render
-        res.json(option)
+        result.json(option)
     })
 })
 
@@ -47,5 +47,4 @@ module.exports = router
 //     const option = data[randomNum]
 //     console.log("option", option);
 //     // Send "option" data back to the frontend js to render
-//     // res.json(option)
 // })

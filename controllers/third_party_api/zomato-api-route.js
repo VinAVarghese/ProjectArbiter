@@ -5,11 +5,11 @@ const axios = require("axios")
 require('dotenv').config();
 
 
-router.post("/api/zomato", (req, res) => {
-    // Need to recieve category and city from frontend form
-    
-    const category = req.body.category;
+router.post("/api/zomato", (req, result) => {
+    // Recieving meal and city from frontend form
     const city = req.body.city;
+    // const meal = req.body.meal; // Uncomment to add meal feature (when frontend ready)
+    // "&categories=${meal}" // Add to second query
 
     const apiKey = process.env.ZOMATO_API_KEY;
     const queryURL = `https://developers.zomato.com/api/v2.1/cities?q=${city}&apikey=${apiKey}`
@@ -17,16 +17,15 @@ router.post("/api/zomato", (req, res) => {
     axios.get(queryURL).then(res => {
         console.log("city ID: ", res.data.location_suggestions[0].id);
         var cityID = res.data.location_suggestions[0].id;
-        var citySpecificURL = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityID}&entity_type=city&categories=${category}&apikey=${apiKey}`
+        var citySpecificURL = `https://developers.zomato.com/api/v2.1/search?entity_id=${cityID}&entity_type=city&apikey=${apiKey}`
         axios.get(citySpecificURL).then(res => {
-            console.log("res.data.restaurants", res.data.restaurants);
             const data = res.data.restaurants;
             // Selecting 1 random option/100 responses to display
             const randomNum = Math.floor(Math.random() * data.length);
             const option = data[randomNum].restaurant
-            console.log("option", option);
+            console.log("Server-sent option", option);
             // Need to send "option" data back to the frontend js to render
-            res.json(option)
+            result.send(option)
         })
     })
 })
@@ -50,6 +49,5 @@ module.exports = router
 //         const option = data[randomNum].restaurant
 //         console.log("option", option);
 //         // Need to send "option" data back to the frontend js to render
-//         // res.json(option)
 //     })
 // })
