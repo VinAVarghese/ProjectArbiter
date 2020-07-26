@@ -4,7 +4,7 @@ var zomato = require('zomato-api');
 const axios = require("axios")
 require('dotenv').config();
 
-router.post("/api/recipyPuppy" , (req, res) => {
+router.post("/api/recipyPuppy" , (req, result) => {
     //Need to recieve data from frontend
     const title = req.body.title;
     const ingredients = req.body.ingredients;
@@ -22,7 +22,7 @@ router.post("/api/recipyPuppy" , (req, res) => {
         const option = res.results[randomNum]
         console.log("option", option);
         // Need to send "option" data back to the frontend js to render
-        res.json(option)
+        result.json(option)
 
     }).catch((error)=>{
         console.log(error)

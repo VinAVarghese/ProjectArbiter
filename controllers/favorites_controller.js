@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
     })
 })
 
-// Add Favorite (favorite button next to returned option in search page)
+// Add Favorite (favorite button under returned option in search page)
 router.post("/", (req, res) => {
     if (!req.session.user) {
         return res.status(401).send("Please login first.")

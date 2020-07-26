@@ -21,7 +21,7 @@ router.post("/signup", (req,res) => {
 router.post("/login", (req,res) => {
     db.User.findOne({
         where: {
-            email:req.params.email
+            email:req.body.email
         }
     }).then(user=>{
         if(!user){
