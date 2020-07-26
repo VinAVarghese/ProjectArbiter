@@ -1,0 +1,60 @@
+{{!-- Home Button --}}
+<div class="grid-x align-right">
+  <div class="cell small-2 medium-1 class user-link-div">
+    <a href="/" class="home-link">Home</a>
+  </div>
+</div>
+
+<div class="grid-container centralize-login">
+  <div class="grid-x align-center">
+
+    <div class="index-background hero-section-text">
+      <form id="registration">
+        <div class="form-icons">
+          <h1>Sign Up</h1>
+          <h4>Register for an account</h4>
+
+          <div class="input-group">
+            {{!-- <span class="input-group-label">
+              <i class="fa fa-user"></i>
+            </span> --}}
+            <input class="input-group-field" id="newName" type="text" placeholder="Full name">
+          </div>
+
+          <div class="input-group">
+            {{!-- <span class="input-group-label">
+              <i class="fa fa-envelope"></i>
+            </span> --}}
+            <input class="input-group-field" id="newEmail" type="text" placeholder="Email">
+          </div>
+
+          <div class="input-group">
+            {{!-- <span class="input-group-label">
+              <i class="fa fa-key"></i>
+            </span> --}}
+            <input class="input-group-field" type="text" id="newPassword" placeholder="Password">
+          </div>
+        </div>
+
+        <input id="signupBtn" type="submit" class="button spontaneousSearchBtn expanded" value="Sign Up"></input>
+        <a id="login" href="#">Existing user? Click here to log in</a>
+      </form>
+
+      <form id="currentUser" class="log-in-form">
+        <h1 id="login-h4">Log In</h1>
+        <h4 class="text-center">Existing User Login</h4>
+        <label>Email
+          <input type="email" id="#userEmail" placeholder="somebody@example.com">
+        </label>
+        <label>Password
+          <input type="password" id="#userPass" placeholder="Password">
+        </label>
+        {{!-- <input id="show-password" type="checkbox"><label for="show-password">Show password</label> --}}
+        <input id="loginBtn" type="submit" class="button spontaneousSearchBtn expanded" value="Log in"></input>
+        <a id="signup" href="#">New here? Click here to register</a>
+      </form>
+    </div>
+
+
+  </div>
+</div>

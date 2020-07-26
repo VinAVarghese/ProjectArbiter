@@ -13,14 +13,10 @@ router.get("/search", (req,res) => {
     res.render("search")
 })
 
-// Log In Page
+// LogIn/SignUp Page
 router.get("/login", (req,res) => {
     res.render("login")
 })
 
-// Sign Up Page
-router.get("/signup", (req,res) => {
-    res.render("signup")
-})
 
 module.exports = router
