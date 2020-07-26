@@ -1,23 +1,24 @@
 var express = require("express");
 var router = express.Router();
 const bcrypt = require("bcrypt");
+var db = require("../models")
 
-// Sign Up Button (on sign up page)
+// Sign Up Button (on login/signup page) PASSED TESTING
 router.post("/signup", (req,res) => {
     db.User.create({
         name:req.body.name,
         email:req.body.email,
         password:req.body.password,
     }).then(userData=>{
-        res.json(userData.id)
-        res.redirect("/user/:id")
+        res.json(userData)
+        res.redirect(`/login`)
     }).catch(err=>{
         console.log(err);
         res.status(500).end()
     })
 })
 
-// Login Button (on login page)
+// Login Button (on login/signup page) NOT WORKING YET
 router.post("/login", (req,res) => {
     db.User.findOne({
         where: {
@@ -34,6 +35,7 @@ router.post("/login", (req,res) => {
                     email:user.email
                 }
                 res.send("Login successful!");
+                res.redirect("/user/" + user.id)
             } else{
                 res.status(401).send("Incorrect password"); 
             }
