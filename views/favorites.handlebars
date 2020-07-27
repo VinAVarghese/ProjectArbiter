@@ -1,32 +1,32 @@
-<<<<<<< HEAD
-{{!-- Log In/User Button --}}
-<div class="grid-x align-right">
-    <div class="cell small-2 medium-1 class user-link-div">
-        <a href="/login" class="top-link">Log In</a>
-=======
 {{!-- Logo/Login Buttons (home/login page) --}}
 <div class="grid-x align-justify">
-    <div class="logo-div cell small-2 medium-1 ">
-        <a href="/"><img src="/assets/favicon/spontaneousasterisk.png"></a>
-    </div>
-    <div class="grid-y align-center cell small-2 medium-1 class user-link-div">
-        <a href="/" class="home-link">Home</a>
->>>>>>> dev
-    </div>
+  <div class="logo-div cell small-2 medium-1 ">
+    <a href="/"><img src="/assets/favicon/spontaneousasterisk.png"></a>
+  </div>
+  <div class="grid-y align-center cell small-2 medium-1 class user-link-div">
+    <a href="/" class="home-link">Home</a>
+  </div>
 </div>
 
 {{!--Main central div with buttons and hero--}}
 <div class="grid-container centralize">
   <div class="grid-x align-center">
-    <div class="index-background">
-
+    <div class="index-background hero-section-text">
+      <div class="text-center">
+        <h1>Favorites</h1>
+        <h4>A list of your favorite spontaneous choices</h4>
+      </div>
+      <br>
+      <div class="favorite-div">
       <ul>
         {{#each favorite}}
         <li class="body-text">{{title}}</li>
-        <input class="edit" value="edit">
-        <input class="delete" value="delete">
-        {{/each}} 
+        <input class="button favEditBtn" data-id={{id}} value="notes">
+        <input class="button favDeleteBtn" data-id={{id}} value="delete">
+        <br>
+        {{/each}}
       </ul>
+      </div>
 
     </div>
   </div>
