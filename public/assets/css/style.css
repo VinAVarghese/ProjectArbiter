@@ -38,6 +38,11 @@ h4{
   background-color: #ae310ebd;
   border-radius: 20px;
 }
+/* ICON/HOME LINK (top right corner) */
+.logo-div{
+  margin-top: 10px;
+  margin-left: 20px;
+}
 
 /* "Centralizes" Main Div */
 .centralize{
