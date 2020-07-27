@@ -14,6 +14,11 @@ a {
   text-shadow: 1px 1px 2px #0a0a0a;
   text-align: center;
 }
+.aPurpGrey {
+  color: #8f8e9a;
+  text-shadow: none;
+  text-align: center;
+}
 label {
   color: #fefefe;
   text-shadow: 1px 1px 2px #0a0a0a;
@@ -34,7 +39,7 @@ h4{
 /* "Centralizes" Main Div */
 .centralize{
   position: relative;
-  top: 170px;
+  top: 25vh;
 }
 /* "Centralizes" Login Div */
 .centralize-login{

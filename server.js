@@ -39,7 +39,7 @@ const tastediveRoutes = require("./controllers/third_party_api/tastedive-api-rou
 app.use(tastediveRoutes);
 const zomatoRoutes = require("./controllers/third_party_api/zomato-api-route");
 app.use(zomatoRoutes);
-const ticketmasterRoutes = require("./controllers/third_party_api/ticketmaster-api-routes");
+const ticketmasterRoutes = require("./controllers/third_party_api/ticketmaster-api-route");
 app.use(ticketmasterRoutes);
 const recipepuppyRoutes = require("./controllers/third_party_api/recipepuppy-api-route");
 app.use(recipepuppyRoutes);

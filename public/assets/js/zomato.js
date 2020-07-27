@@ -3,10 +3,10 @@ $(document).ready(() => {
     // Click listener grabbing/storing values
     $(".spontaneousSearchBtn").on("click", (event) => {
         event.preventDefault();
-        // const category = $("#meal").val();
+        const estId = $("#selectCategory").val();
         const city = $("#input").val()
-        if ($("#selectCategory").val() === "Restaurant" || $("#selectCategory").val() === "Nightlife" || $("#selectCategory").val() === "Bar") {
-            searchZomato(city)
+        if ($("#selectCategory").val() === "Restaurant" || $("#selectCategory").val() === "8" || $("#selectCategory").val() === "7") {
+            searchZomato(city, estId)
         }
     })
 
@@ -16,16 +16,16 @@ $(document).ready(() => {
             event.preventDefault()
             // const category = $("#meal").val();
             const city = $("#input").val();
-            if ($("#selectCategory").val() === "Restaurant" || $("#selectCategory").val() === "Nightlife" || $("#selectCategory").val() === "Bar") {
-                searchZomato(city)
+            if ($("#selectCategory").val() === "Restaurant" || $("#selectCategory").val() === "8" || $("#selectCategory").val() === "7") {
+                searchZomato(city, estId)
             }
         }
     })
 
     // Sending "city" data server-side
-    const searchZomato = (city) => {
+    const searchZomato = (city, estId) => {
         const searchData = {
-            // meal,
+            estId,
             city
         }
         $.ajax("/api/zomato", {
@@ -43,6 +43,11 @@ $(document).ready(() => {
             }
         })
     }
+
+    // Saving IMG Path: For card image if API doesn't have one
+    const imgArray = ["/assets/images/adam-wilson-6UIonphZA5o-unsplash.jpg","/assets/images/michael-discenza-MxfcoxycH_Y-unsplash.jpg", "/assets/images/alexander-popov-2GNBoMgKYEo-unsplash.jpg", "/assets/images/louis-hansel-shotsoflouis-yLUvnCFI500-unsplash.jpg", "/assets/images/yutacar-JKMnm3CIncw-unsplash.jpg"]
+    const randomNum = Math.floor(Math.random() * imgArray.length);
+    const img = imgArray[randomNum]
 
     // FUNCTION: Render option card
     const renderZomatoOption = (option) => {
@@ -72,6 +77,8 @@ $(document).ready(() => {
             $(optionSection).append(h4Link);
             const aTag = $("<a>");
             aTag.attr("href", option.url)
+            aTag.attr("class", "aPurpGrey")
+            aTag.attr("target", "_blank")
             aTag.text("\n|\nZomato Page")
             $(optionSection).append(aTag);
         }
@@ -79,13 +86,24 @@ $(document).ready(() => {
         if (option.menu_url !== null) {
             const aTag2 = $("<a>");
             aTag2.attr("href", option.menu_url)
+            aTag2.attr("class", "aPurpGrey")
+            aTag2.attr("target", "_blank")
             aTag2.text("\n|\nMenu")
             $(optionSection).append(aTag2);
         }
 
-        if (option.featured_image !== null) {
+        if (option.featured_image !== '') {
             const imgTag = $("<img>");
             imgTag.attr("src", option.featured_image);
+            imgTag.css({
+                "margin":"0px",
+                "width":"500px",
+                "height":"auto"
+            });
+            $(optionHeader).after(imgTag);
+        } else {
+            const imgTag = $("<img>");
+            imgTag.attr("src", img);
             imgTag.css({
                 "margin":"0px",
                 "width":"500px",
