@@ -30,14 +30,14 @@ router.post("/api/ticketmaster", (req, result) => {
 module.exports = router
 
 
-// TESTING
+// TESTING PASSED
 
 // const now = moment().format('YYYY-MM-DD');
 // const startDate = now;
 // const endDate = moment().add(3, "M").format('YYYY-MM-DD');
 
 // const apiKey = process.env.TICKETMASTER_API_KEY;
-// const queryURL = `https://app.ticketmaster.com/discovery/v2/events.json?city=[seattle]&startDateTime=${startDate}T01:00:00Z&endDateTime=${endDate}T01:00:00Z&apikey=LsFM7ICoGCN8uTXLMR6CGoQ7BIPbyA7H`
+// const queryURL = `https://app.ticketmaster.com/discovery/v2/events.json?city=[seattle]&startDateTime=${startDate}T01:00:00Z&endDateTime=${endDate}T01:00:00Z&apikey=`
 
 // axios.get(queryURL).then((res) => {
 //     console.log("res.data", res.data);

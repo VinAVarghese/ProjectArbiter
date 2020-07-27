@@ -21,6 +21,10 @@ $(document).ready(() => {
     $("#selectCategory").change((event) => {
         if ($("#selectCategory").val() === "Restaurant" || $("#selectCategory").val() === "Nightlife" || $("#selectCategory").val() === "Bar" || $("#selectCategory").val() === "Event") {
             $("#input").attr("placeholder", "Enter Your City")
+        } else if ($("#selectCategory").val() === "Recipe"){
+            $("#input").attr("placeholder", "Enter Ingreidents You Have")
+        } else if ($("#selectCategory").val() === ""){
+            $("#input").attr("placeholder", "")
         } else {
             $("#input").attr("placeholder", `Enter A Favorite Example`)
         }

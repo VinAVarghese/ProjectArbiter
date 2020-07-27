@@ -76,6 +76,9 @@ $(document).ready(() => {
             $(optionSection).append(h4YTube);
             const iframe = $("<iframe>");
             iframe.attr("src", option.yUrl)
+            iframe.attr("title", "preview")
+            iframe.attr("width", "100%")
+            iframe.attr("height", "450")
             $(optionSection).append(iframe);
         }
 
