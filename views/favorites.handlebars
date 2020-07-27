@@ -1,0 +1,27 @@
+{{!-- Log In/User Button --}}
+<div class="grid-x align-right">
+  <div class="cell small-2 medium-1 class user-link-div">
+    <a href="/login" class="user-link">Log In</a>
+  </div>
+</div>
+
+{{!--Main central div with buttons and hero--}}
+<div class="grid-container centralize">
+  <div class="grid-x align-center">
+    <div class="index-background">
+
+      <ul>
+        {{#each Favorites}}
+        <input class="edit" value="edit">
+        <input class="delete" value="delete">
+        {{/each}} 
+      </ul>
+
+    </div>
+  </div>
+  {{!-- Search and Favorite Button Row --}}
+  <div class="grid-x align-center grid-margin-x grid-margin-y buttonrow">
+    <a class="cell small-4 medium-3 grid-margin-y button alert searchBtn" href="/search">Search</a>
+    <a class="cell small-4 medium-3 grid-margin-y button alert favoritesBtn" href="/fav/">Favorites</a>
+  </div>
+</div>
