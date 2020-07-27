@@ -1,8 +1,8 @@
 {{!-- Log In/User Button --}}
 <div class="grid-x align-right">
-  <div class="cell small-2 medium-1 class user-link-div">
-    <a href="/login" class="user-link">Log In</a>
-  </div>
+    <div class="cell small-2 medium-1 class user-link-div">
+        <a href="/login" class="top-link">Log In</a>
+    </div>
 </div>
 
 {{!--Main central div with buttons and hero--}}
@@ -11,7 +11,8 @@
     <div class="index-background">
 
       <ul>
-        {{#each Favorites}}
+        {{#each favorite}}
+        <li class="body-text">{{title}}</li>
         <input class="edit" value="edit">
         <input class="delete" value="delete">
         {{/each}} 

@@ -7,13 +7,13 @@ router.get("/", (req, res) => {
     if (!req.session.user) {
         return res.status(401).send("Please login first.")
     }
-    db.Favorites.findAll({
+    db.Favorite.findAll({
         include: [db.User]
     }).then(favs => {
         const favsJSON = favs.map((favsObj) => {
             return favsObj.toJSON();
         })
-        res.render("favorites", { favorites: favsJSON })
+        res.render("favorites", { favorite: favsJSON })
     }).catch(err => {
         console.log(err);
         res.status(500).end()
@@ -25,7 +25,7 @@ router.post("/", (req, res) => {
     if (!req.session.user) {
         return res.status(401).send("Please login first.")
     }
-    db.Favorites.create({
+    db.Favorite.create({
         title: req.body.title,
         note: "",
         UserId: req.session.user.id
@@ -42,7 +42,7 @@ router.delete("/:id", (req, res) => {
     if (!req.session.user) {
         return res.status(401).send("Please login first.")
     } else {
-        db.Favorites.destroy({
+        db.Favorite.destroy({
             where: {
                 id: req.params.id
             }
@@ -60,7 +60,7 @@ router.get("/:id", (req, res) => {
     if (!req.session.user) {
         return res.status(401).send("Please login first.")
     }
-    db.Favorites.findOne({
+    db.Favorite.findOne({
         where: {
             id: req.params.id
         }
@@ -68,7 +68,7 @@ router.get("/:id", (req, res) => {
         const favsJSON = favs.map((favsObj) => {
             return favsObj.toJSON();
         })
-        res.render("favorite_edit", { favorites: favsJSON })
+        res.render("favorite_edit", { favorite: favsJSON })
     }).catch(err => {
         console.log(err);
         res.status(500).end()
@@ -80,7 +80,7 @@ router.put("/:id", (req, res) => {
     if (!req.session.user) {
         return res.status(401).send("Please login first.")
     }
-    db.Favorites.update({
+    db.Favorite.update({
         title: req.body.title,
         note: req.body.note,
     }, {

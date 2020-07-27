@@ -31,7 +31,7 @@ module.exports = router
 
 // TESTING PASSED
 
-// const queryURL = `http://www.recipepuppy.com/api/?i=chicken,brocolli&apikey=a40f442fafmshc16ab1c62b70434p167b3fjsn895b16ddfd1d`
+// const queryURL = `http://www.recipepuppy.com/api/?i=chicken,brocolli&apikey=`
 
 // axios.get(queryURL).then((res) => {
 //     const data = res.data.results

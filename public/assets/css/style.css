@@ -26,6 +26,9 @@ label {
 h4{
   padding:0;
 }
+.body-text{
+  color: #fefefe;
+}
 
 /* LOGIN/USER LINK (top right corner) */
 .user-link-div{

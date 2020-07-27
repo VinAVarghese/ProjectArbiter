@@ -29,7 +29,7 @@ module.exports = router
 
 // let option;
 // const apiKey = process.env.TASTEDIVE_API_KEY;
-// const queryURL = `https://tastedive.com/api/similar?q=Movie:Harry%20Potter&info=1&limit=30&k=379591-Spontane-B984IDZT`
+// const queryURL = `https://tastedive.com/api/similar?q=Movie:Harry%20Potter&info=1&limit=30&k=`
 
 // axios.get(queryURL).then((res) => {
 //     const data = res.data.Similar.Results
