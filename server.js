@@ -44,7 +44,7 @@ app.use(ticketmasterRoutes);
 const recipepuppyRoutes = require("./controllers/third_party_api/recipepuppy-api-route");
 app.use(recipepuppyRoutes);
 
-db.sequelize.sync().then(function() {
+db.sequelize.sync({force:true}).then(function() {
     app.listen(PORT, function() {
       console.log("App now listening on port:", PORT);
     });

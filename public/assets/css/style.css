@@ -26,6 +26,9 @@ label {
 h4{
   padding:0;
 }
+.body-text{
+  color: #fefefe;
+}
 
 /* LOGIN/USER LINK (top right corner) */
 .user-link-div{
@@ -34,6 +37,11 @@ h4{
   margin-right: 20px;
   background-color: #ae310ebd;
   border-radius: 20px;
+}
+/* ICON/HOME LINK (top right corner) */
+.logo-div{
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 /* "Centralizes" Main Div */
@@ -83,6 +91,30 @@ h4{
 .help-text{
   color: #d6c3b6;
   text-shadow: 1px 1px 2px #a2a5a8;
+}
+
+/* FAVORITES PAGE */
+.favorite-div{
+  height: 200px;
+  overflow:scroll;
+  border: #4e4e57 groove;
+  border-radius: 20px;
+}
+.favEditBtn {
+  height: 10px;
+  margin: 0;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  margin-bottom: 10px;
+  background-color: #8f8e9a !important;
+}
+.favDeleteBtn {
+  height: 10px;  
+  margin: 0;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  margin-bottom: 10px;
+  background-color: #4e4e57 !important;
 }
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
