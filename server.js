@@ -41,6 +41,8 @@ const zomatoRoutes = require("./controllers/third_party_api/zomato-api-route");
 app.use(zomatoRoutes);
 const ticketmasterRoutes = require("./controllers/third_party_api/ticketmaster-api-routes");
 app.use(ticketmasterRoutes);
+const recipepuppyRoutes = require("./controllers/third_party_api/recipepuppy-api-route");
+app.use(recipepuppyRoutes);
 
 db.sequelize.sync().then(function() {
     app.listen(PORT, function() {

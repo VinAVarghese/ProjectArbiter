@@ -1,4 +1,5 @@
 $(document).ready(() => {
+    
     // Form listener grabbing/storing values
     $("#search-form").on("submit", (event) => {
         event.preventDefault()

@@ -1,7 +1,7 @@
 $(document).ready(() => {
 
     // EVERY PAGE JS //
-    // Top Link: display and routing NOT WORKING
+    // Top Link: Display and routing
     $.ajax({
         url: "/auth/readsession",
         method: "GET",
