@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var db = require("../models")
 
-// User Page > Read user data on load
+// User Page > Read user data on load PASSED TESTING
 router.get("/user/:id", (req,res) => {
     if(req.session.user){
         db.User.findOne({
