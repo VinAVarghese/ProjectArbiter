@@ -1,27 +1,30 @@
 {{!-- Log In/User Button --}}
-<div class="grid-x align-right">
-  <div class="cell small-2 medium-1 class user-link-div">
-    <a href="/" class="home-link">Home</a>
-  </div>
+<div class="grid-x align-justify">
+    <div class="cell small-2 medium-1 ">
+        <a href="/"><img src="/assets/favicon/spontaneousasterisk.png"></a>
+    </div>
+    <div class="cell small-2 medium-1 class user-link-div">
+        <a href="/" class="home-link">Home</a>
+    </div>
 </div>
 
 {{!--Main central div--}}
 <div class="grid-container centralize">
-  <div class="grid-x align-center">
-    <div class="index-background">
-      <div class="xy-grid align-center">
-        <h1 class="hero-section-text">User Page</h1>
-        <h3 class="hero-section-text">Welcome <br> {{name}}</h3>
-      </div>
-      <p>
-        {{name}}
-        {{email}}
-      </p>
+    <div class="grid-x align-center">
+        <div class="index-background">
+            <div class="xy-grid align-center">
+                <h1 class="hero-section-text">User Page</h1>
+                <h3 class="hero-section-text">Welcome <br> {{name}}</h3>
+            </div>
+            <p>
+                {{name}}
+                {{email}}
+            </p>
+        </div>
     </div>
-  </div>
-  {{!-- Search and Favorite Button Row --}}
-  <div class="grid-x align-center grid-margin-x grid-margin-y buttonrow">
-    <a class="cell small-4 medium-3 grid-margin-y button alert searchBtn" href="/search">Search</a>
-    <a class="cell small-4 medium-3 grid-margin-y button alert favoritesBtn" href="/fav/">Favorites</a>
-  </div>
+    {{!-- Search and Favorite Button Row --}}
+    <div class="grid-x align-center grid-margin-x grid-margin-y buttonrow">
+        <a class="cell small-4 medium-3 grid-margin-y button alert searchBtn" href="/search">Search</a>
+        <a class="cell small-4 medium-3 grid-margin-y button alert favoritesBtn" href="/fav/">Favorites</a>
+    </div>
 </div>
