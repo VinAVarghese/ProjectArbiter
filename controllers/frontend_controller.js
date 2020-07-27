@@ -17,7 +17,7 @@ router.get("/search", (req,res) => {
 
 // LogIn/SignUp Page
 router.get("/login", (req,res) => {
-    res.render("log_in")
+    res.render("login")
 })
 
 

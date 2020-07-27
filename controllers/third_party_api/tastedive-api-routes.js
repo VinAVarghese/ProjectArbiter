@@ -25,7 +25,7 @@ router.post("/api/tastedive" , (req,result) => {
 
 module.exports = router
 
-// vvv TESTING vvv
+// TESTING PASSED
 
 // let option;
 // const apiKey = process.env.TASTEDIVE_API_KEY;
