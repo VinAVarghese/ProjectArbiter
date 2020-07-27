@@ -28,6 +28,7 @@ router.post("/", (req, res) => {
     db.Favorites.create({
         title: req.body.title,
         note: "",
+        UserId: req.session.user.id
     }).then(favoriteData => {
         res.json(favoriteData)
     }).catch(err => {
@@ -56,6 +57,9 @@ router.delete("/:id", (req, res) => {
 
 // Single View/Fav Edit Page
 router.get("/:id", (req, res) => {
+    if (!req.session.user) {
+        return res.status(401).send("Please login first.")
+    }
     db.Favorites.findOne({
         where: {
             id: req.params.id
@@ -73,6 +77,9 @@ router.get("/:id", (req, res) => {
 
 // Update Button (on single view page)
 router.put("/:id", (req, res) => {
+    if (!req.session.user) {
+        return res.status(401).send("Please login first.")
+    }
     db.Favorites.update({
         title: req.body.title,
         note: req.body.note,

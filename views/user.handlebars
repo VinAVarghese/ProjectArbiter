@@ -1,7 +1,7 @@
 {{!-- Log In/User Button --}}
 <div class="grid-x align-right">
   <div class="cell small-2 medium-1 class user-link-div">
-    <a href="/login" class="user-link">Log In</a>
+    <a href="/" class="home-link">Home</a>
   </div>
 </div>
 
@@ -9,10 +9,14 @@
 <div class="grid-container centralize">
   <div class="grid-x align-center">
     <div class="index-background">
-      <h1 class="hero-section-text">User Info</h1>
-      {{user.name}}
-      {{user.email}}
-      {{user.password}}
+      <div class="xy-grid align-center">
+        <h1 class="hero-section-text">User Page</h1>
+        <h3 class="hero-section-text">Welcome <br> {{name}}</h3>
+      </div>
+      <p>
+        {{name}}
+        {{email}}
+      </p>
     </div>
   </div>
   {{!-- Search and Favorite Button Row --}}
