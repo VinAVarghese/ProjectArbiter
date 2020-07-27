@@ -5,9 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     Favorite.associate = (models) => {
-      Favorite.belongsTo(models.User,{
-        as:"Owner"
-      });
+      Favorite.belongsTo(models.User);
     };
 
     return Favorite;

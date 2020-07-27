@@ -3,6 +3,7 @@ var router = express.Router();
 const bcrypt = require("bcrypt");
 var db = require("../models")
 
+
 // Sign Up Button (on login/signup page) PASSED TESTING
 router.post("/signup", (req,res) => {
     db.User.create({
@@ -11,14 +12,13 @@ router.post("/signup", (req,res) => {
         password:req.body.password,
     }).then(userData=>{
         res.json(userData)
-        res.redirect(`/login`)
     }).catch(err=>{
         console.log(err);
         res.status(500).end()
     })
 })
 
-// Login Button (on login/signup page) NOT WORKING YET
+// Login Button (on login/signup page) PASSED TESTING
 router.post("/login", (req,res) => {
     db.User.findOne({
         where: {
@@ -34,8 +34,8 @@ router.post("/login", (req,res) => {
                     name:user.name,
                     email:user.email
                 }
-                res.send("Login successful!");
-                res.redirect("/user/" + user.id)
+                // res.status(200).send("Login successful");
+                res.json(user)
             } else{
                 res.status(401).send("Incorrect password"); 
             }
@@ -51,15 +51,12 @@ router.get("/logout",(req,res)=>{
     res.send("You have been logged out!");
 })
 
-router.get("/readsessions",(req,res)=>{
-    res.json(req.session.user)
-})
-
-router.get("/secretroute",(req,res)=>{
-    if(req.session.user){
-        res.send(`Welcome`)
+// Session Check PASSED TESTING 
+router.get("/readsession",(req,res)=>{
+    if(!req.session.user){
+        res.send("Not logged in")
     } else {
-        res.status(401).send("Please login first.")
+        res.json(req.session.user)
     }
 })
 
