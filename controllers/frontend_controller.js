@@ -9,11 +9,11 @@ router.get("/", (req,res) => {
     res.render("home")
 })
 
-
 // Search Page
 router.get("/search", (req,res) => {
     res.render("search")
 })
+
 
 // LogIn/SignUp Page
 router.get("/login", (req,res) => {
