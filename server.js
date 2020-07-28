@@ -15,14 +15,14 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// app.use(session({
-//   secret: process.env.SESSION_SECRET,
-//   resave: false,
-//   saveUninitialized: true,
-//   cookie: {
-//     maxAge: 7200000
-//   }
-// }))
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 7200000
+  }
+}))
 
 // Routes for rendering and db interaction
 const frontendRoutes = require("./controllers/frontend_controller");
