@@ -201,5 +201,7 @@ h4{
   margin-top: 100px;
 }
 
-
-  
+#animateLogo:hover {
+  animation: flip;
+  animation-duration: 15s;
+}
