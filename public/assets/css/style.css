@@ -29,6 +29,15 @@ h4{
 .body-text{
   color: #fefefe;
 }
+.hero-section-text {
+  color: #fefefe;
+  text-shadow: 1px 1px 2px #0a0a0a;
+}
+.index-background {
+  background-color: #ae310ec9;
+  border-radius: 20px;
+  padding: 50px;
+}
 
 /* LOGIN/USER LINK (top right corner) */
 .user-link-div{
@@ -38,6 +47,10 @@ h4{
   background-color: #ae310ebd;
   border-radius: 20px;
 }
+.input-group-label{
+  background-color: #a2a5a8;
+}
+
 /* ICON/HOME LINK (top right corner) */
 .logo-div{
   margin-top: 10px;
@@ -69,6 +82,13 @@ h4{
   margin: 0;
   background-color: #d6c3b6 !important;
 }
+.heartBtn {
+  font-size: xx-large;
+  margin: 0;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  background-color: #d6c3b6 !important;
+}
 
 /* SEARCH PAGE: SPONTANEOUS OPTION CARD */
 #card-option{
@@ -93,16 +113,18 @@ h4{
   text-shadow: 1px 1px 2px #a2a5a8;
 }
 
-/* FAVORITES PAGE */
+/* FAVORITES & FAVORITE EDIT PAGE */
 .favorite-div{
   height: 200px;
   overflow:scroll;
   border: #4e4e57 groove;
   border-radius: 20px;
+  background-color: #d6c3b675;
 }
-.favEditBtn {
+.favNotesBtn {
   height: 10px;
   margin: 0;
+  border: 1px #4e4e57 solid;
   border-radius: 10px;
   text-shadow: 1px 1px 2px #0a0a0a;
   margin-bottom: 10px;
@@ -111,20 +133,29 @@ h4{
 .favDeleteBtn {
   height: 10px;  
   margin: 0;
+  border: 1px #8f8e9a solid;
   border-radius: 10px;
   text-shadow: 1px 1px 2px #0a0a0a;
   margin-bottom: 10px;
   background-color: #4e4e57 !important;
 }
+.index-background-fav-editor {
+  background-color: #ae310ec9;
+  border-radius: 20px;
+  width: 60vw;
+  height: auto;
+  padding: 50px;
+}
+.centralize-fav-edit{
+  position: relative;
+  top: 100px;
+}
+
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
 
 .grid-container .grid-x .button {
   border-radius: 10px;
   background-color: #ae310ebd;
-}
-
-.city, #mealchoice {
-  display: none;
 }
 
 .buttonrow {
@@ -142,14 +173,5 @@ h4{
   margin-top: 100px;
 }
 
-.hero-section-text {
-  color: #fefefe;
-  text-shadow: 1px 1px 2px #0a0a0a;
-}
 
-.index-background {
-    background-color: #ae310ec9;
-    border-radius: 20px;
-    padding: 50px;
-}
   

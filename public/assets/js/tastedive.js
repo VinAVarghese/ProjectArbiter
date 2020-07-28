@@ -83,15 +83,16 @@ $(document).ready(() => {
         }
 
         const favBtn = $("<button>")
-        favBtn.attr("class", "button spontaneousSearchBtn cell")
+        favBtn.attr("class", "button heartBtn cell")
         favBtn.attr("id", "saveFav")
-        favBtn.text("Add To Favorites")
+        const heartIcon = $("<i>")
+        heartIcon.attr("class","far fa-heart")
+        heartIcon.attr("id","heart")
+        favBtn.append(heartIcon)
+        // favBtn.text("Add To Favorites")
         $(optionCard).after(favBtn)
 
-        // Font Awesome Bug To Fix
-        // const heartIcon = $("<i>")
-        // heartIcon.attr("class","fas fa-heart")
-        // favBtn.append(heartIcon)
+        
         listenToAddFav(option.Type, option.Name)
     }
 
@@ -107,7 +108,8 @@ $(document).ready(() => {
                 data: favTitle
             }).done((data) => {
                 console.log("Favorite saved: " + data);
-                $("#saveFav").text("ADDED")
+                $("#heart").attr("class","fas fa-heart")
+                // $("#saveFav").text("ADDED")
             }).fail((err) => {
                 console.log(err);
                 $("#saveFav").text("Please Log In First")

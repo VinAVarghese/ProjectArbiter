@@ -3,8 +3,8 @@
   <div class="logo-div cell small-2 medium-1 ">
     <a href="/"><img src="/assets/favicon/spontaneousasterisk.png"></a>
   </div>
-  <div class="grid-y align-center cell small-2 medium-1 class user-link-div">
-    <a href="/" class="home-link">Home</a>
+  <div class="grid-y align-center cell small-2 medium-1 user-link-div">
+    <a href="/login" class="top-link">Log In</a>
   </div>
 </div>
 
@@ -18,14 +18,14 @@
       </div>
       <br>
       <div class="favorite-div">
-      <ul>
-        {{#each favorite}}
-        <li class="body-text">{{title}}</li>
-        <input class="button favEditBtn" data-id={{id}} value="notes">
-        <input class="button favDeleteBtn" data-id={{id}} value="delete">
-        <br>
-        {{/each}}
-      </ul>
+        <ul>
+          {{#each favorite}}
+          <li class="body-text">{{title}}</li>
+          <input class="button favNotesBtn" data-id={{id}} value="notes">
+          <input class="button favDeleteBtn" data-id={{id}} value="delete">
+          <br>
+          {{/each}}
+        </ul>
       </div>
 
     </div>

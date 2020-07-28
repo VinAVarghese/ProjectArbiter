@@ -8,19 +8,21 @@
     </div>
 </div>
 
-<div class="hero-section">
-    <div class="hero-section-text">
-        <div class="index-background">
-            <h1>Edit Favorite</h1>
+{{!--Main central div--}}
+<div class="grid-container centralize-fav-edit">
+    <div class="grid-x align-center">
+        <div class="index-background-fav-editor">
+            <div class="text-center">
+                <h1 class="hero-section-text">Add Notes</h1>
+                <textarea class="favTitleEdit" rows="1" cols="10">{{title}}</textarea>
+                <textarea class="favNoteEdit" placeholder="Add some notes" rows="5" cols="20">{{note}}</textarea>
+                <button id="saveNotesBtn" data-id={{id}} class="button heartBtn"><i id="saveIcon" class="far fa-save"></i></button>
+            </div>
         </div>
-
-        <div class="col-8">
-            <input class="title" placeholder={{title}} maxlength="28" type="text">
-            <textarea class="note" placeholder={{note}}></textarea>
-        </div>
-
-        <div class="icons">
-            <button id="submit-fav">Save Changes</button>
-        </div>
+    </div>
+    {{!-- Search and Favorite Button Row --}}
+    <div class="grid-x align-center grid-margin-x grid-margin-y buttonrow">
+        <a class="cell small-4 medium-3 grid-margin-y button alert searchBtn" href="/search">Search</a>
+        <a class="cell small-4 medium-3 grid-margin-y button alert favoritesBtn" href="/fav/">Favorites</a>
     </div>
 </div>

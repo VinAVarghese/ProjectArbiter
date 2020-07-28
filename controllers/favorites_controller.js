@@ -2,7 +2,7 @@ var express = require("express");
 var router = express.Router();
 var db = require("../models")
 
-// Favorites Page > Read all on load
+// Favorites Page > Read all on load PASSED TESTING
 router.get("/", (req, res) => {
     if (!req.session.user) {
         return res.status(401).send("Please login first.")
@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
     })
 })
 
-// Add Favorite (favorite button under returned option in search page)
+// Add Favorite (favorite button in search page) PASSED TESTING
 router.post("/", (req, res) => {
     if (!req.session.user) {
         return res.status(401).send("Please login first.")
@@ -37,7 +37,7 @@ router.post("/", (req, res) => {
     })
 })
 
-// Delete Favorite Button (on favorites page)
+// Delete Favorite Button (on favorites page) PASSED TESTING
 router.delete("/:id", (req, res) => {
     if (!req.session.user) {
         return res.status(401).send("Please login first.")
@@ -47,7 +47,7 @@ router.delete("/:id", (req, res) => {
                 id: req.params.id
             }
         }).then(favoriteData => {
-            res.json(favoriteData)
+            res.send("Deleted")
         }).catch(err => {
             console.log(err);
             res.status(500).end()
@@ -55,7 +55,7 @@ router.delete("/:id", (req, res) => {
     }
 })
 
-// Single View/Fav Edit Page
+// Single View/Fav Edit Page PASSED TESTING
 router.get("/:id", (req, res) => {
     if (!req.session.user) {
         return res.status(401).send("Please login first.")
@@ -65,17 +65,16 @@ router.get("/:id", (req, res) => {
             id: req.params.id
         }
     }).then(favs => {
-        const favsJSON = favs.map((favsObj) => {
-            return favsObj.toJSON();
-        })
-        res.render("favorite_edit", { favorite: favsJSON })
+        const favsJSON = favs.toJSON();
+        console.log(favsJSON);
+        res.render("favorite_edit", favsJSON)
     }).catch(err => {
         console.log(err);
         res.status(500).end()
     })
 })
 
-// Update Button (on single view page)
+// Edit Button (on single view page)
 router.put("/:id", (req, res) => {
     if (!req.session.user) {
         return res.status(401).send("Please login first.")
