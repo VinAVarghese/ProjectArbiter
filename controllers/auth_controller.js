@@ -45,12 +45,6 @@ router.post("/login", (req,res) => {
     })
 })
 
-// Logout Button (on user page)
-router.get("/logout",(req,res)=>{
-    req.session.destroy();
-    res.send("You have been logged out!");
-})
-
 // Session Check PASSED TESTING 
 router.get("/readsession",(req,res)=>{
     if(!req.session.user){

@@ -28,6 +28,7 @@ h4{
 }
 .body-text{
   color: #fefefe;
+  margin: 0;
 }
 .hero-section-text {
   color: #fefefe;
@@ -47,25 +48,17 @@ h4{
   background-color: #ae310ebd;
   border-radius: 20px;
 }
-.input-group-label{
-  background-color: #a2a5a8;
-}
 
-/* ICON/HOME LINK (top right corner) */
+/* ICON/HOME LINK (top left corner) */
 .logo-div{
   margin-top: 10px;
   margin-left: 20px;
 }
 
-/* "Centralizes" Main Div */
+/* "Centralizes" Default Main/Central Divs */
 .centralize{
   position: relative;
   top: 25vh;
-}
-/* "Centralizes" Login Div */
-.centralize-login{
-  position: relative;
-  top: 100px;
 }
 
 /* SEARCH PAGE: SEARCH FORM */
@@ -112,6 +105,9 @@ h4{
   color: #d6c3b6;
   text-shadow: 1px 1px 2px #a2a5a8;
 }
+.input-group-label{
+  background-color: #a2a5a8;
+}
 
 /* FAVORITES & FAVORITE EDIT PAGE */
 .favorite-div{
@@ -146,9 +142,41 @@ h4{
   height: auto;
   padding: 50px;
 }
+.centralize-fav{
+  position: relative;
+  top: 100px;
+}
 .centralize-fav-edit{
   position: relative;
   top: 100px;
+}
+
+/* USER PAGE STYLING */
+.centralize-user{
+  position: relative;
+  top: 100px;
+}
+.logOutBtn {
+  margin: 0;
+  border: 1px #4e4e57 solid;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  margin-bottom: 10px;
+  background-color: #8f8e9a !important;
+}
+.deleteAcctBtn {  
+  margin: 0;
+  border: 1px #ae310e groove;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  margin-bottom: 10px;
+  background-color: #4e4e57 !important;
+}
+.saveBtn{
+  margin: 0;
+  padding: 5px 20px;
+  border-radius: 0px 10px 10px 0px !important;
+  background-color: #d6c3b6 !important;
 }
 
 /* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
