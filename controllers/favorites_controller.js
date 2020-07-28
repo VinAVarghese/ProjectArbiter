@@ -5,7 +5,7 @@ var db = require("../models")
 // Favorites Page > Read all on load PASSED TESTING
 router.get("/", (req, res) => {
     if (!req.session.user) {
-        return res.status(401).send("Please login first.")
+        res.render("notauth")
     }
     db.Favorite.findAll({
         include: [db.User]
@@ -23,7 +23,7 @@ router.get("/", (req, res) => {
 // Add Favorite (favorite button in search page) PASSED TESTING
 router.post("/", (req, res) => {
     if (!req.session.user) {
-        return res.status(401).send("Please login first.")
+        res.render("notauth")
     }
     db.Favorite.create({
         title: req.body.title,
@@ -40,7 +40,7 @@ router.post("/", (req, res) => {
 // Delete Favorite Button (on favorites page) PASSED TESTING
 router.delete("/:id", (req, res) => {
     if (!req.session.user) {
-        return res.status(401).send("Please login first.")
+        res.render("notauth")
     } else {
         db.Favorite.destroy({
             where: {
@@ -58,7 +58,7 @@ router.delete("/:id", (req, res) => {
 // Single View/Fav Edit Page PASSED TESTING
 router.get("/:id", (req, res) => {
     if (!req.session.user) {
-        return res.status(401).send("Please login first.")
+        res.render("notauth")
     }
     db.Favorite.findOne({
         where: {
@@ -77,7 +77,7 @@ router.get("/:id", (req, res) => {
 // Edit Button (on single view page)
 router.put("/:id", (req, res) => {
     if (!req.session.user) {
-        return res.status(401).send("Please login first.")
+        res.render("notauth")
     }
     db.Favorite.update({
         title: req.body.title,
