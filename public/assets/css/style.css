@@ -61,6 +61,11 @@ h4{
   top: 25vh;
 }
 
+/* HOME PAGE */
+#main-logo{
+  width: 450px;
+}
+
 /* SEARCH PAGE: SEARCH FORM */
 .headerText{
   color: #fefefe;
