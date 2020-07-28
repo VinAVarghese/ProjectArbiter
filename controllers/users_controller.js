@@ -52,7 +52,8 @@ router.delete("/user/:id", (req, res) => {
             id: req.params.id
         }
     }).then(userData => {
-        res.json(userData)
+        req.session.destroy();
+        res.send("Your account has been deleted!");
     }).catch(err => {
         console.log(err);
         res.status(500).end()
