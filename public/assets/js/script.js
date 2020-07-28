@@ -19,7 +19,7 @@ $(document).ready(() => {
     // SEARCH PAGE JS // 
     // Listener: Assign correct placeholder content
     $("#selectCategory").change((event) => {
-        if ($("#selectCategory").val() === "Restaurant" || $("#selectCategory").val() === "Nightlife" || $("#selectCategory").val() === "Bar" || $("#selectCategory").val() === "Event") {
+        if ($("#selectCategory").val() === "Restaurant" || $("#selectCategory").val() === "8" || $("#selectCategory").val() === "7" || $("#selectCategory").val() === "Event") {
             $("#input").attr("placeholder", "Enter Your City")
         } else if ($("#selectCategory").val() === "Recipe"){
             $("#input").attr("placeholder", "Enter Ingreidents You Have")

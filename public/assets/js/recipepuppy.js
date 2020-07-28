@@ -3,7 +3,6 @@ $(document).ready(() => {
     // Click listener grabbing/storing values
     $(".spontaneousSearchBtn").on("click", (event) => {
         event.preventDefault();
-        
         const ingredients = $("#input").val()
         if ($("#selectCategory").val() === "Recipe") {
             searchRecipePuppy(ingredients)
@@ -86,31 +85,32 @@ $(document).ready(() => {
         }
 
         const favBtn = $("<button>")
-        favBtn.attr("class", "button spontaneousSearchBtn cell")
+        favBtn.attr("class", "button heartBtn cell")
         favBtn.attr("id", "saveFavRecipe")
-        favBtn.text("Add To Favorites")
+        // favBtn.text("Add To Favorites")
+        const heartIcon = $("<i>")
+        heartIcon.attr("class","far fa-heart")
+        heartIcon.attr("id","heart")
+        favBtn.append(heartIcon)
         $(optionCard).after(favBtn)
 
-        // Font Awesome Bug To Fix
-        // const heartIcon = $("<i>")
-        // heartIcon.attr("class","fas fa-heart")
-        // favBtn.append(heartIcon)
-        listenToAddFav(option.Type, option.Name)
+        listenToAddFav(option.title)
     }
 
     // FUNCTION: Add to favorites
-    const listenToAddFav = (type, title) => {
+    const listenToAddFav = (title) => {
         $("#saveFavRecipe").on("click", (event) => {
             event.preventDefault()
             const favTitle = {
-                title:`${type}: ${title}`
+                title:`${title}`
             }
             $.ajax("/fav/", {
                 type: "POST",
                 data: favTitle
             }).done((data) => {
                 console.log("Favorite saved: " + data);
-                $("#saveFavRecipe").text("ADDED")
+                $("#heart").attr("class","fas fa-heart")
+                // $("#saveFavRecipe").text("ADDED")
             }).fail((err) => {
                 console.log(err);
                 $("#saveFavRecipe").text("Please Log In First")
