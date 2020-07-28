@@ -2,8 +2,8 @@ $(document).ready(() => {
 
     // Listeners: Log Out and Delete Account Buttons
     $(".logOutBtn").on("click", function (event) {
-        // event.preventDefault();
-        $.ajax("/auth/logout",{
+        event.preventDefault();
+        $.ajax("/logout",{
             type:"GET"
         }).then((res) =>{
             location.href = `/`;
@@ -16,7 +16,7 @@ $(document).ready(() => {
         $.ajax(`/user/${delId}`, {
             type: "DELETE",
         }).then((option) => {
-            location.href = "/"
+            location.href = "/login"
         })
     })
 
