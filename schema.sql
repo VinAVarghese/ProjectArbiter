@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS spontaneous;
+CREATE DATABASE spontaneous;

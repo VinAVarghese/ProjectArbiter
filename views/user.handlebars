@@ -1,0 +1,53 @@
+{{!-- Logo/Login Buttons (home/login page) --}}
+<div class="grid-x align-justify">
+    <div class="logo-div cell small-2 medium-1 ">
+        <a href="/"><img src="/assets/favicon/spontaneousasterisk.png"></a>
+    </div>
+    <div class="grid-y align-center cell small-2 medium-1 class user-link-div">
+        <a href="/" class="home-link">Home</a>
+    </div>
+</div>
+
+{{!--Main central div--}}
+<div class="grid-container centralize-user">
+    <div class="grid-x align-center">
+
+        <div class="index-background">
+            <div class="text-center">
+                <h1 class="hero-section-text">User Page</h1>
+                <h4 class="hero-section-text">Welcome <br> {{name}}</h4>
+            </div>
+
+            <br>
+
+            <form id="change-user">
+                <div class="form-icons">
+                    <p class="body-text text-center">Would you like to change your email?</p>
+
+                    <div class="grid-x">
+                        <div class="input-group">
+                            <input class="input-group-field" id="newEmail" type="text" placeholder={{email}}>
+                            <button id="editUserBtn" data-id={{id}} type="submit" class="button saveBtn"><i
+                                    id="saveIcon" class='far fa-save'></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <br>
+            <br>
+
+            <div class="grid-x align-justify">
+                <input class="button logOutBtn expanded" type="button" data-id={{id}} value="Log Out">
+                <input class="button deleteAcctBtn expanded" type="button" data-id={{id}} value="Delete Account">
+            </div>
+
+        </div>
+    </div>
+
+    {{!-- Search and Favorite Button Row --}}
+    <div class="grid-x align-center grid-margin-x grid-margin-y buttonrow">
+        <a class="cell small-4 medium-3 grid-margin-y button alert searchBtn" href="/search">Search</a>
+        <a class="cell small-4 medium-3 grid-margin-y button alert favoritesBtn" href="/fav/">Favorites</a>
+    </div>
+</div>

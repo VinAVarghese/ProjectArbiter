@@ -1,0 +1,205 @@
+/* FULL PAGE STYLINGS */
+* {
+  font-family: 'Poppins', sans-serif !important;
+}
+body {
+  background: url("https://images.unsplash.com/photo-1528605248644-14dd04022da1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+a {
+  color: #fefefe;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  text-align: center;
+}
+.aPurpGrey {
+  color: #8f8e9a;
+  text-shadow: none;
+  text-align: center;
+}
+label {
+  color: #fefefe;
+  text-shadow: 1px 1px 2px #0a0a0a;
+}
+h4{
+  padding:0;
+}
+.body-text{
+  color: #fefefe;
+  margin: 0;
+}
+.hero-section-text {
+  color: #fefefe;
+  text-shadow: 1px 1px 2px #0a0a0a;
+}
+.index-background {
+  background-color: #ae310ec9;
+  border-radius: 20px;
+  padding: 50px;
+}
+
+/* LOGIN/USER LINK (top right corner) */
+.user-link-div{
+  text-align: center;
+  margin-top: 10px;
+  margin-right: 20px;
+  background-color: #ae310ebd;
+  border-radius: 20px;
+}
+
+/* ICON/HOME LINK (top left corner) */
+.logo-div{
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+/* "Centralizes" Default Main/Central Divs */
+.centralize{
+  position: relative;
+  top: 25vh;
+}
+
+/* SEARCH PAGE: SEARCH FORM */
+.headerText{
+  color: #fefefe;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.spontaneousSearchBtn {
+  margin: 0;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  margin: 0;
+  background-color: #d6c3b6 !important;
+}
+.heartBtn {
+  font-size: xx-large;
+  margin: 0;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  background-color: #d6c3b6 !important;
+}
+
+/* SEARCH PAGE: SPONTANEOUS OPTION CARD */
+#card-option{
+  text-align: center;
+  align-items: center;
+}
+.card-divider{
+  text-align: center;
+  align-items: center;
+  width: 100%;
+}
+.fa-heart{
+  color: #ae310e;
+}
+
+/* LOGIN/SIGN UP PAGE: REG FORM */
+#registration, #login-h4, #signup{
+  text-align: center;
+}
+.help-text{
+  color: #d6c3b6;
+  text-shadow: 1px 1px 2px #a2a5a8;
+}
+.input-group-label{
+  background-color: #a2a5a8;
+}
+
+/* FAVORITES & FAVORITE EDIT PAGE */
+.favorite-div{
+  height: 200px;
+  overflow:scroll;
+  border: #4e4e57 groove;
+  border-radius: 20px;
+  background-color: #d6c3b675;
+}
+.favNotesBtn {
+  height: 10px;
+  margin: 0;
+  border: 1px #4e4e57 solid;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  margin-bottom: 10px;
+  background-color: #8f8e9a !important;
+}
+.favDeleteBtn {
+  height: 10px;  
+  margin: 0;
+  border: 1px #8f8e9a solid;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  margin-bottom: 10px;
+  background-color: #4e4e57 !important;
+}
+.index-background-fav-editor {
+  background-color: #ae310ec9;
+  border-radius: 20px;
+  width: 60vw;
+  height: auto;
+  padding: 50px;
+}
+.centralize-fav{
+  position: relative;
+  top: 100px;
+}
+.centralize-fav-edit{
+  position: relative;
+  top: 100px;
+}
+
+/* USER PAGE STYLING */
+.centralize-user{
+  position: relative;
+  top: 100px;
+}
+.logOutBtn {
+  margin: 0;
+  border: 1px #4e4e57 solid;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  margin-bottom: 10px;
+  background-color: #8f8e9a !important;
+}
+.deleteAcctBtn {  
+  margin: 0;
+  border: 1px #ae310e groove;
+  border-radius: 10px;
+  text-shadow: 1px 1px 2px #0a0a0a;
+  margin-bottom: 10px;
+  background-color: #4e4e57 !important;
+}
+.saveBtn{
+  margin: 0;
+  padding: 5px 20px;
+  border-radius: 0px 10px 10px 0px !important;
+  background-color: #d6c3b6 !important;
+}
+
+/* ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ */
+
+.grid-container .grid-x .button {
+  border-radius: 10px;
+  background-color: #ae310ebd;
+}
+
+.buttonrow {
+  position: relative;
+  top: 15px;
+}
+
+.center {
+  position: absolute;
+      top: 33%;
+      left: 33%;
+}
+
+.search, .favorites {
+  margin-top: 100px;
+}
+
+
+  

@@ -1,0 +1,38 @@
+{{!-- Logo/Login Buttons (home/login page) --}}
+<div class="grid-x align-justify">
+  <div class="logo-div cell small-2 medium-1 ">
+    <a href="/"><img src="/assets/favicon/spontaneousasterisk.png"></a>
+  </div>
+  <div class="grid-y align-center cell small-2 medium-1 user-link-div">
+    <a href="/login" class="top-link">Log In</a>
+  </div>
+</div>
+
+{{!--Main central div with buttons and hero--}}
+<div class="grid-container centralize-fav">
+  <div class="grid-x align-center">
+    <div class="index-background hero-section-text">
+      <div class="text-center">
+        <h1>Favorites</h1>
+        <h4>Your saved spontaneous choices</h4>
+      </div>
+      <br>
+      <div class="favorite-div">
+        <ul>
+          {{#each favorite}}
+          <li class="body-text">{{title}}</li>
+          <input class="button favNotesBtn" data-id={{id}} value="notes">
+          <input class="button favDeleteBtn" data-id={{id}} value="delete">
+          <br>
+          {{/each}}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  {{!-- Search and Favorite Button Row --}}
+  <div class="grid-x align-center grid-margin-x grid-margin-y buttonrow">
+    <a class="cell small-4 medium-3 grid-margin-y button alert searchBtn" href="/search">Search</a>
+    <a class="cell small-4 medium-3 grid-margin-y button alert favoritesBtn" href="/fav/">Favorites</a>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+{
+  "name": "projectarbiter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VinAVarghese/ProjectArbiter.git"
+  },
+  "author": "Vinsanity Inc.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VinAVarghese/ProjectArbiter/issues"
+  },
+  "homepage": "https://github.com/VinAVarghese/ProjectArbiter#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "express-session": "^1.17.1",
+    "moment": "^2.27.0",
+    "mysql2": "^2.1.0",
+    "sequelize": "^6.3.3",
+    "zomato-api": "^0.1.2"
+  },
+  "devDependencies": {
+    "handlebars-helper-css": "^0.1.0"
+  }
+}
