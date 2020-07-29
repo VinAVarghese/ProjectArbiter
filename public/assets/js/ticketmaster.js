@@ -19,7 +19,7 @@ $(document).ready(() => {
             }
         }
     })
-    
+
     // FUNCTION: Sending "city" data server-side for axios
     const searchTicketmaster = (city) => {
         const searchData = {
@@ -30,22 +30,23 @@ $(document).ready(() => {
             data: searchData,
         }).then((option) => {
             // Input validator
-        if (option === "unknown" || option === undefined || option === null || option === "") {
-            $("#input").val("Not a valid search, please try again")
-            $("#input").attr("class", "error");
-        } else
-            $("#input").attr("class", "errorFix");
-            $(".index-background").empty();
-            renderTicketmasterOption(option)
+            if (option === "unknown" || option === undefined || option === null || option === "") {
+                $("#input").val("Not a valid search, please try again")
+                $("#input").attr("class", "error");
+            } else {
+                $("#input").attr("class", "errorFix");
+                $(".index-background").empty();
+                renderTicketmasterOption(option)
+            }
         })
     }
-    
+
     // FUNCTION: Displaying random option details in a card
     const renderTicketmasterOption = (option) => {
         const optionCard = $("<div>");
         optionCard.attr("class", "card");
         $(".index-background").append(optionCard);
-    
+
         const optionHeader = $("<div>");
         optionHeader.attr("class", "card-divider");
         optionHeader.text(`${option.name} (${option._embedded.venues[0].name})`);
@@ -55,17 +56,17 @@ $(document).ready(() => {
             const imgTag = $("<img>");
             imgTag.attr("src", option.images[0].url);
             imgTag.css({
-                "margin":"0px",
-                "width":"500px",
-                "height":"auto"
+                "margin": "0px",
+                "width": "500px",
+                "height": "auto"
             });
             $(optionHeader).after(imgTag);
         }
-    
+
         const optionSection = $("<div>");
         optionSection.attr("class", "card-section");
         $(optionCard).append(optionSection);
-    
+
         if (option.dates.start.localDate !== null) {
             const h4Date = $("<h4>");
             h4Date.text("Date")
@@ -91,8 +92,8 @@ $(document).ready(() => {
         favBtn.attr("class", "button heartBtn cell")
         favBtn.attr("id", "saveFavEvent")
         const heartIcon = $("<i>")
-        heartIcon.attr("class","far fa-heart")
-        heartIcon.attr("id","heart")
+        heartIcon.attr("class", "far fa-heart")
+        heartIcon.attr("id", "heart")
         favBtn.append(heartIcon)
         // favBtn.text("Add To Favorites")
         $(optionCard).after(favBtn)
@@ -112,7 +113,7 @@ $(document).ready(() => {
                 data: favTitle
             }).done((data) => {
                 console.log("Favorite saved: " + data);
-                $("#heart").attr("class","fas fa-heart")
+                $("#heart").attr("class", "fas fa-heart")
                 // $("#saveFavEvent").text("ADDED")
             }).fail((err) => {
                 console.log(err);

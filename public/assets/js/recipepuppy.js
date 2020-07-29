@@ -34,10 +34,11 @@ $(document).ready(() => {
             if (option === "unknown" || option === undefined || option === null || option === "") {
                 $("#input").val("Not a valid search, please try again")
                 $("#input").attr("class", "error");
-            } else
+            } else {
                 $("#input").attr("class", "errorFix");
                 $(".index-background").empty();
                 renderRecipeOption(option)
+            }
         })
     }
 
