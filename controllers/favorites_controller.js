@@ -8,7 +8,9 @@ router.get("/", (req, res) => {
         res.render("notauth")
     }
     db.Favorite.findAll({
-        include: [db.User]
+        where:{
+            userId:req.session.user.id
+        }
     }).then(favs => {
         const favsJSON = favs.map((favsObj) => {
             return favsObj.toJSON();
