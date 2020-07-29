@@ -18,12 +18,14 @@
       </div>
       <br>
       <div class="favorite-div">
-        <ul>
+        <ul id="fav-list-gutters">
           {{#each favorite}}
-          <li class="body-text">{{title}}</li>
-          <input class="button favNotesBtn" data-id={{id}} value="notes">
-          <input class="button favDeleteBtn" data-id={{id}} value="delete">
-          <br>
+          <p class="fav-list-text">{{title}}</p>
+          <input class="button favNotesBtn expanded" type="button" data-id={{id}} value="notes">
+          <input class="button favDeleteBtn expanded" type="button" data-id={{id}} value="delete">
+          {{!-- <button class="button favNotesBtn " data-id={{id>notes</button>
+          <button class="button favDeleteBtn " data-id={{id>delete</button> --}}
+          <hr>
           {{/each}}
         </ul>
       </div>

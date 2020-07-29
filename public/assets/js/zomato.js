@@ -33,7 +33,7 @@ $(document).ready(() => {
             data: searchData,
         }).then((option) => {
             // Input validator
-            if (option === "unknown" || option === undefined || option === null || option === "") {
+            if (option === "undefined" || option === undefined || option === null || option === "") {
                 $("#input").val("Not a valid example, please try again")
                 $("#input").attr("class", "error");
             } else {
